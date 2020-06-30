@@ -1,0 +1,11 @@
+{
+  "name": "buzzle-sdk",
+  "version": "1.0.0",
+  "description": "sdk for buzzle api",
+  "main": "authApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
