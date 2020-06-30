@@ -1,5 +1,6 @@
-import createTestJobs from "helpers/createTestJobs";
 const baseUrl = process.env.REACT_APP_API_URL;
+if (!fetch) const fetch = require("node-fetch");
+
 const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
@@ -47,19 +48,5 @@ export const Job = {
 
     if (!response.ok) throw new Error("request failed.");
     return await response.json();
-  },
-
-  renderTests: async (data) => {
-    const jobs = createTestJobs(data);
-
-    await Promise.all(
-      jobs.map((job) => {
-        fetch(`${baseUrl}/jobs`, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(job),
-        }).then((response) => response.json());
-      })
-    );
   },
 };
