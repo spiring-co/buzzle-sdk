@@ -1,11 +1,27 @@
 {
   "name": "buzzle-sdk",
   "version": "1.0.0",
-  "description": "sdk for buzzle api",
+  "description": "Official SDK for Buzzle Platform APIs",
   "main": "authApi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spiring.co/buzzle-sdk.git"
+  },
+  "keywords": [
+    "box",
+    "platform",
+    "api",
+    "apis",
+    "upload",
+    "download",
+    "sdk"
+  ],
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  }
 }
