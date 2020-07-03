@@ -1,6 +1,6 @@
 //TODO move to auth
 const baseUrl = process.env.REACT_APP_API_URL;
-const fetch = require('node-fetch');
+if (!fetch) const fetch = require("node-fetch");
 
 const headers = {
   Accept: "application/json",
