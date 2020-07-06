@@ -1,8 +1,20 @@
-const Creator = require("../lib/api/creator");
-const headers = {
-  Accept: "application/json",
-  "Content-Type": "application/json",
-};
+const { apiClient, progressListener } = require("../lib");
 
-const c = Creator("https://pharaoh-api.herokuapp.com", headers);
-c.get("D_YhuC9Dl").then(console.log);
+const pl = progressListener("http://localhost:5000");
+const { Job } = apiClient({ baseUrl: "http://localhost:5000" });
+
+async function main() {
+  try {
+    const { id } = await Job.create({
+      idVideoTemplate: "FU_Sg-ygG9",
+      idVersion: "XJy4MpE0M",
+    });
+
+    console.log(id);
+    pl.on(id, (data) => console.log(data));
+  } catch (e) {
+    console.error(`Error:${e.message}`);
+  }
+}
+
+main();

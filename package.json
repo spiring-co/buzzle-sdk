@@ -2,18 +2,23 @@
   "name": "buzzle-sdk",
   "version": "1.0.0",
   "description": "Official SDK for Buzzle Platform APIs",
-  "main": "authApi.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "spiring",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/spiring.co/buzzle-sdk.git"
   },
+  "bugs": {
+    "url": "https://github.com/spiring-co/buzzle-sdk/issues"
+  },
+  "homepage": "https://github.com/spiring-co/buzzle-sdk#readme",
   "keywords": [
-    "box",
+    "buzzle",
+    "video",
     "platform",
     "api",
     "apis",
