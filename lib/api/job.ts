@@ -1,8 +1,8 @@
-const apiRequest = require("../helpers/apiRequest");
-
-module.exports = function Job(baseUrl, headers) {
+import apiRequest from "../helpers/apiRequest";
+import { JobInterface } from "../interfaces";
+export default function Job(baseUrl: String, headers: Object): JobInterface {
   return {
-    getAll: async (page, size, query = "") => {
+    getAll: async (page, size, query) => {
       return apiRequest(`${baseUrl}/jobs?page=${page}&size=${size}&${query}`, {
         method: "GET",
         headers,
@@ -74,4 +74,4 @@ module.exports = function Job(baseUrl, headers) {
       );
     },
   };
-};
+}

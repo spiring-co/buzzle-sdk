@@ -1,6 +1,7 @@
-const apiRequest = require("../helpers/apiRequest");
+import apiRequest from "../helpers/apiRequest";
+import { FontInterface } from "../interfaces";
 
-module.exports = function Font(baseUrl, headers) {
+export default function Font(baseUrl: String, headers: Object): FontInterface {
   return {
     get: async (name) => {
       return apiRequest(`${process.env.REACT_APP_API_URL}/fonts?name=${name}`, {
@@ -17,4 +18,4 @@ module.exports = function Font(baseUrl, headers) {
       });
     },
   };
-};
+}

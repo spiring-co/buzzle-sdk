@@ -1,6 +1,9 @@
-const apiRequest = require("../helpers/apiRequest");
-
-module.exports = function VideoTemplate(baseUrl, headers) {
+import apiRequest from "../helpers/apiRequest";
+import { VideoTemplateInterface } from "../interfaces";
+export default function VideoTemplate(
+  baseUrl: String,
+  headers: Object
+): VideoTemplateInterface {
   return {
     getAll: async (page, size, query = "") => {
       return apiRequest(
@@ -41,4 +44,4 @@ module.exports = function VideoTemplate(baseUrl, headers) {
       });
     },
   };
-};
+}

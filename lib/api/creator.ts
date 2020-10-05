@@ -1,15 +1,16 @@
-const apiRequest = require("../helpers/apiRequest");
+import apiRequest from "../helpers/apiRequest";
+import { CreatorInterface } from "../interfaces";
 
-module.exports = function Creator(baseUrl, headers) {
+export default function Creator(
+  baseUrl: String,
+  headers: Object
+): CreatorInterface {
   return {
-    getAll: async (page, size, query = "") => {
-      return apiRequest(
-        `${baseUrl}/creators?page=${page}&size=${size}&${query}`,
-        {
-          method: "GET",
-          headers,
-        }
-      );
+    getAll: async (page, size) => {
+      return apiRequest(`${baseUrl}/creators?page=${page}&size=${size}`, {
+        method: "GET",
+        headers,
+      });
     },
     get: async (id) => {
       return apiRequest(`${baseUrl}/creators/${id}`, {
@@ -49,14 +50,9 @@ module.exports = function Creator(baseUrl, headers) {
         }
       );
     },
-    getJobs: async (
-      id,
-      page,
-      size,
-      { startDate = "", endDate = "", idVideoTemplate = "", state = "" }
-    ) => {
+    getJobs: async (id, page, size, query = "") => {
       return apiRequest(
-        `${baseUrl}/creators/${id}/jobs?page=${page}&size=${size}&startDate=${startDate}&endDate=${endDate}&idVideoTemplate=${idVideoTemplate}&state=${state}`,
+        `${baseUrl}/creators/${id}/jobs?page=${page}&size=${size}&query=${query}`,
         {
           method: "GET",
           headers,
@@ -64,4 +60,4 @@ module.exports = function Creator(baseUrl, headers) {
       );
     },
   };
-};
+}
