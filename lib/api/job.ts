@@ -23,7 +23,6 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       idVersion,
       renderPrefs,
     }) => {
-      console.log("Base", baseUrl);
       return apiRequest(`${baseUrl}/jobs`, {
         method: "POST",
         headers,
