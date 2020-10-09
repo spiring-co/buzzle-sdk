@@ -19,3 +19,5 @@ var creatorRole;
 (function (creatorRole) {
     creatorRole[creatorRole["Creator"] = 0] = "Creator";
 })(creatorRole = exports.creatorRole || (exports.creatorRole = {}));
+// "main": "dist/lib/index.js",
+// "types": "dist/lib/index.d.ts",

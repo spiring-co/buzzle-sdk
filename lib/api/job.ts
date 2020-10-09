@@ -2,11 +2,20 @@ import apiRequest from "../helpers/apiRequest";
 import { JobInterface } from "../interfaces";
 export default function Job(baseUrl: String, headers: Object): JobInterface {
   return {
-    getAll: async (page, size, query) => {
-      return apiRequest(`${baseUrl}/jobs?page=${page}&size=${size}&${query}`, {
-        method: "GET",
-        headers,
-      });
+    getAll: async (
+      page,
+      size,
+      query,
+      sortBy = "dateCreated",
+      orderBy = "desc"
+    ) => {
+      return apiRequest(
+        `${baseUrl}/jobs?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}`,
+        {
+          method: "GET",
+          headers,
+        }
+      );
     },
 
     get: async (id, populateVideoTemplate) => {

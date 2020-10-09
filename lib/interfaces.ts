@@ -198,7 +198,9 @@ export interface JobInterface {
   getAll: (
     page: Number,
     size: Number,
-    query: String
+    query: String,
+    sortBy: String,
+    orderBy: String
   ) => Promise<{ data: Array<Job | []>; count: Number }>;
   get: (id: String, populateVideoTemplate: Boolean) => Promise<Job | []>;
 
@@ -217,3 +219,7 @@ export default interface APIInterface {
   VideoTemplate: VideoTemplateInterface;
   Search: SearchInterface;
 }
+
+
+// "main": "dist/lib/index.js",
+// "types": "dist/lib/index.d.ts",
