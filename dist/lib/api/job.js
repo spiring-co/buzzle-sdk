@@ -45,7 +45,7 @@ function Job(baseUrl, headers) {
             if (orderBy === void 0) { orderBy = "desc"; }
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&" + query + "&" + sortBy + "&" + orderBy, {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query, {
                             method: "GET",
                             headers: headers,
                         })];
