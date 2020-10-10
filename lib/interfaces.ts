@@ -162,7 +162,9 @@ export interface VideoTemplateInterface {
   getAll: (
     page: Number,
     size: Number,
-    query: String
+    query: String,
+    sortBy: String,
+    orderBy: String
   ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
   get: (id: String) => Promise<VideoTemplate | {}>;
 
@@ -219,7 +221,6 @@ export default interface APIInterface {
   VideoTemplate: VideoTemplateInterface;
   Search: SearchInterface;
 }
-
 
 // "main": "dist/lib/index.js",
 // "types": "dist/lib/index.d.ts",

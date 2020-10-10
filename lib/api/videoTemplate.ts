@@ -5,9 +5,15 @@ export default function VideoTemplate(
   headers: Object
 ): VideoTemplateInterface {
   return {
-    getAll: async (page, size, query) => {
+    getAll: async (
+      page,
+      size,
+      query,
+      sortBy = "dateCreated",
+      orderBy = "desc"
+    ) => {
       return apiRequest(
-        `${baseUrl}/videoTemplates?page=${page}&size=${size}&${query}`,
+        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}`,
         {
           method: "GET",
           headers,
