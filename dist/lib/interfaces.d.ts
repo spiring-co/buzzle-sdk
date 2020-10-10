@@ -150,7 +150,7 @@ export interface FontInterface {
     create: (data: Font) => Promise<Object>;
 }
 export interface VideoTemplateInterface {
-    getAll: (page: Number, size: Number, query: String) => Promise<{
+    getAll: (page: Number, size: Number, query: String, sortBy: String, orderBy: String) => Promise<{
         data: Array<VideoTemplate | []>;
         count: Number;
     }>;

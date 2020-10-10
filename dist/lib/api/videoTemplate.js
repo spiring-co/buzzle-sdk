@@ -40,14 +40,18 @@ var apiRequest_1 = require("../helpers/apiRequest");
 function VideoTemplate(baseUrl, headers) {
     var _this = this;
     return {
-        getAll: function (page, size, query) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?page=" + page + "&size=" + size + "&" + query, {
-                        method: "GET",
-                        headers: headers,
-                    })];
+        getAll: function (page, size, query, sortBy, orderBy) {
+            if (sortBy === void 0) { sortBy = "dateCreated"; }
+            if (orderBy === void 0) { orderBy = "desc"; }
+            return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query, {
+                            method: "GET",
+                            headers: headers,
+                        })];
+                });
             });
-        }); },
+        },
         get: function (id) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id, {
