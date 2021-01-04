@@ -40,12 +40,12 @@ var apiRequest_1 = require("../helpers/apiRequest");
 function Job(baseUrl, headers) {
     var _this = this;
     return {
-        getAll: function (page, size, query, sortBy, orderBy) {
+        getAll: function (page, size, query, sortBy, orderBy, idCreator) {
             if (sortBy === void 0) { sortBy = "dateCreated"; }
             if (orderBy === void 0) { orderBy = "desc"; }
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query, {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&idCreator=" + idCreator + "&" + query, {
                             method: "GET",
                             headers: headers,
                         })];

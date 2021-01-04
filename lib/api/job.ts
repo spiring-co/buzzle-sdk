@@ -7,10 +7,11 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       size,
       query,
       sortBy = "dateCreated",
-      orderBy = "desc"
+      orderBy = "desc",
+      idCreator
     ) => {
       return apiRequest(
-        `${baseUrl}/jobs?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}`,
+        `${baseUrl}/jobs?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&idCreator=${idCreator}&${query}`,
         {
           method: "GET",
           headers,

@@ -202,7 +202,8 @@ export interface JobInterface {
     size: Number,
     query: String,
     sortBy: String,
-    orderBy: String
+    orderBy: String,
+    idCreator: String
   ) => Promise<{ data: Array<Job | []>; count: Number }>;
   get: (id: String, populateVideoTemplate: Boolean) => Promise<Job | []>;
 

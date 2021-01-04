@@ -178,7 +178,7 @@ export interface CreatorInterface {
     }>;
 }
 export interface JobInterface {
-    getAll: (page: Number, size: Number, query: String, sortBy: String, orderBy: String) => Promise<{
+    getAll: (page: Number, size: Number, query: String, sortBy: String, orderBy: String, idCreator: String) => Promise<{
         data: Array<Job | []>;
         count: Number;
     }>;
