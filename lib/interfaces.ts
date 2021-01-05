@@ -164,7 +164,8 @@ export interface VideoTemplateInterface {
     size: Number,
     query: String,
     sortBy: String,
-    orderBy: String
+    orderBy: String,
+    idCreator: String
   ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
   get: (id: String) => Promise<VideoTemplate | {}>;
 

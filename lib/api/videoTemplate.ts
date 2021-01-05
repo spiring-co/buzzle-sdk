@@ -10,10 +10,11 @@ export default function VideoTemplate(
       size,
       query,
       sortBy = "dateCreated",
-      orderBy = "desc"
+      orderBy = "desc",
+      idCreator: String
     ) => {
       return apiRequest(
-        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}`,
+        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&idCreator=${idCreator}&${query}`,
         {
           method: "GET",
           headers,
