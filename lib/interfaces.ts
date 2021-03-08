@@ -95,7 +95,7 @@ export interface Font {
   name: String;
 }
 
-export interface Creator {
+export interface User {
   loginAttempts?: Number;
   isVerified?: Boolean;
   otp?: String;
@@ -129,7 +129,7 @@ export interface SearchInterface {
   ) => Promise<{
     videoTemplates: { data: Array<VideoTemplate | []>; count: Number };
     jobs: { data: Array<Job | []>; count: Number };
-    creators: { data: Array<Creator | []>; count: Number };
+    creators: { data: Array<User | []>; count: Number };
   }>;
   getJobs: (
     text: String,
@@ -149,13 +149,20 @@ export interface SearchInterface {
     page: Number,
     size: Number
   ) => Promise<{
-    data: Array<Creator | []>;
+    data: Array<User | []>;
     count: Number;
   }>;
 }
 export interface FontInterface {
   get: (name: String) => Promise<Font | Object>;
   create: (data: Font) => Promise<Object>;
+}
+
+export interface AuthInterface {
+  login: (data: Object) => Promise<Object>;
+  verifyEmail: () => Promise<Object>;
+  resetPassword: (data: Object) => Promise<Object>;
+  resetPasswordEmail: (data: Object) => Promise<Object>;
 }
 
 export interface VideoTemplateInterface {
@@ -168,34 +175,22 @@ export interface VideoTemplateInterface {
     idCreator: String
   ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
   get: (id: String) => Promise<VideoTemplate | {}>;
-
   create: (data: String) => Promise<any>;
-
   update: (id: String, data: Object) => Promise<any>;
-
+  updateMany: (data: Object) => Promise<any>;
   delete: (id: String) => Promise<any>;
+  deleteMany: (data: Object) => Promise<any>;
 }
 
-export interface CreatorInterface {
+export interface UserInterface {
   getAll: (
     page: Number,
     size: Number
-  ) => Promise<{ data: Array<Creator | []>; count: Number }>;
-  get: (id: String) => Promise<Creator | {}>;
-  create: (user: Creator) => Promise<any>;
-  changePassword: (id: String, data: Object) => Promise<any>;
+  ) => Promise<{ data: Array<User | []>; count: Number }>;
+  get: (id: String) => Promise<User | {}>;
+  create: (user: User) => Promise<any>;
+  delete: (id: String, data: Object) => Promise<any>;
   update: (id: String, data: Object) => Promise<any>;
-  getVideoTemplates: (
-    id: String,
-    page: Number,
-    size: Number
-  ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
-  getJobs: (
-    id: Number,
-    page: Number,
-    size: Number,
-    query: String
-  ) => Promise<{ data: Array<Job | []>; count: Number }>;
 }
 export interface JobInterface {
   getAll: (
@@ -219,7 +214,7 @@ export interface JobInterface {
 export default interface APIInterface {
   Job: JobInterface;
   Font: FontInterface;
-  Creator: CreatorInterface;
+  User: UserInterface;
   VideoTemplate: VideoTemplateInterface;
   Search: SearchInterface;
 }

@@ -43,11 +43,25 @@ export default function VideoTemplate(
         body: JSON.stringify(data),
       });
     },
+    updateMany: async (data) => {
+      return apiRequest(`${baseUrl}/videoTemplates`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(data),
+      });
+    },
 
     delete: async (id) => {
       return apiRequest(`${baseUrl}/videoTemplates/${id}`, {
         method: "DELETE",
         headers,
+      });
+    },
+    deleteMany: async (data) => {
+      return apiRequest(`${baseUrl}/videoTemplates`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(data),
       });
     },
   };
