@@ -11,55 +11,56 @@ export default function VideoTemplate(
       query,
       sortBy = "dateCreated",
       orderBy = "desc",
-      idCreator: String
+      idCreator: String,
+      extraParams
     ) => {
       return apiRequest(
-        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&idCreator=${idCreator}&${query}`,
+        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&idCreator=${idCreator}&${query}&${extraParams}`,
         {
           method: "GET",
           headers,
         }
       );
     },
-    get: async (id) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}`, {
+    get: async (id, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${extraParams}`, {
         method: "GET",
         headers,
       });
     },
 
-    create: async (data) => {
-      return apiRequest(`${baseUrl}/videoTemplates`, {
+    create: async (data, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates?${extraParams}`, {
         method: "POST",
         headers,
         body: JSON.stringify(data),
       });
     },
 
-    update: async (id, data) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}`, {
+    update: async (id, data, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${extraParams}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
       });
     },
-    updateMany: async (data) => {
-      return apiRequest(`${baseUrl}/videoTemplates`, {
+    updateMany: async (data, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates?${extraParams}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
       });
     },
 
-    delete: async (id) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}`, {
+    delete: async (id, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${extraParams}`, {
         method: "DELETE",
         headers,
       });
     },
-    deleteMany: async (data) => {
-      return apiRequest(`${baseUrl}/videoTemplates`, {
-        method: "PUT",
+    deleteMany: async (data,extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates?${extraParams}`, {
+        method: "DELETE",
         headers,
         body: JSON.stringify(data),
       });

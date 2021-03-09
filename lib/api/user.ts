@@ -6,36 +6,39 @@ export default function Creator(
   headers: Object
 ): UserInterface {
   return {
-    getAll: async (page, size) => {
-      return apiRequest(`${baseUrl}/users?page=${page}&size=${size}`, {
-        method: "GET",
-        headers,
-      });
+    getAll: async (page, size, extraParams) => {
+      return apiRequest(
+        `${baseUrl}/users?page=${page}&size=${size}&${extraParams}`,
+        {
+          method: "GET",
+          headers,
+        }
+      );
     },
-    get: async (id) => {
-      return apiRequest(`${baseUrl}/users/${id}`, {
+    get: async (id, extraParams) => {
+      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
         method: "GET",
         headers,
       });
     },
 
-    delete: async ( id, data ) => {
-      return apiRequest(`${baseUrl}/users/${id}`, {
+    delete: async (id, data, extraParams) => {
+      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
         method: "DELETE",
         headers,
         body: JSON.stringify(data),
       });
     },
 
-    create: async (user) => {
-      return apiRequest(`${baseUrl}/users`, {
+    create: async (user, extraParams) => {
+      return apiRequest(`${baseUrl}/users?${extraParams}`, {
         method: "POST",
         headers,
         body: JSON.stringify(user),
       });
     },
-    update: async (id, data) => {
-      return apiRequest(`${baseUrl}/users/${id}`, {
+    update: async (id, data, extraParams) => {
+      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),

@@ -8,10 +8,10 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       query,
       sortBy = "dateCreated",
       orderBy = "desc",
-      idCreator
+      extraParams
     ) => {
       return apiRequest(
-        `${baseUrl}/jobs?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&idCreator=${idCreator}&${query}`,
+        `${baseUrl}/jobs?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}&${extraParams}`,
         {
           method: "GET",
           headers,
@@ -19,9 +19,9 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       );
     },
 
-    get: async (id, populateVideoTemplate) => {
+    get: async (id, populateVideoTemplate, extraParams) => {
       return apiRequest(
-        `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}`,
+        `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}&${extraParams}`,
         { method: "GET", headers }
       );
     },
@@ -32,8 +32,10 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       idVideoTemplate,
       idVersion,
       renderPrefs,
+      extraData,
+      extraParams,
     }) => {
-      return apiRequest(`${baseUrl}/jobs`, {
+      return apiRequest(`${baseUrl}/jobs?${extraParams}`, {
         method: "POST",
         headers,
         body: JSON.stringify({
@@ -42,45 +44,39 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
           idVideoTemplate,
           idVersion,
           renderPrefs,
+          extraData,
         }),
       });
     },
 
-    update: async (id, { actions, data, renderPrefs }) => {
-      return apiRequest(`${baseUrl}/jobs/${id}`, {
+    update: async (id, data, extraParams) => {
+      return apiRequest(`${baseUrl}/jobs/${id}?${extraParams}`, {
         method: "PUT",
         headers,
-        body: JSON.stringify({ actions, data, renderPrefs }),
+        body: JSON.stringify({ data }),
       });
     },
 
-    updateMultiple: async (data) => {
-      await Promise.all(
-        data.map(({ id, actions, data, renderPrefs }) =>
-          apiRequest(`${baseUrl}/jobs/${id}`, {
-            method: "PUT",
-            headers,
-            body: JSON.stringify({ actions, data, renderPrefs }),
-          })
-        )
-      );
+    updateMultiple: async (data, extraParams) => {
+      return apiRequest(`${baseUrl}/jobs?${extraParams}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify({ data }),
+      });
     },
 
-    delete: async (id) => {
-      return apiRequest(`${baseUrl}/jobs/${id}`, {
+    delete: async (id, extraParams) => {
+      return apiRequest(`${baseUrl}/jobs/${id}?${extraParams}`, {
         method: "DELETE",
         headers,
       });
     },
-    deleteMultiple: async (data) => {
-      await Promise.all(
-        data.map(({ id }) =>
-          apiRequest(`${baseUrl}/jobs/${id}`, {
-            method: "DELETE",
-            headers,
-          })
-        )
-      );
+    deleteMultiple: async (data, extraParams) => {
+      return apiRequest(`${baseUrl}/jobs?${extraParams}`, {
+        method: "DELETE",
+        headers,
+        body: JSON.stringify(data),
+      });
     },
   };
 }

@@ -113,6 +113,8 @@ export interface JobUpdateParam {
   actions?: Object;
   data: Object;
   renderPrefs: Object;
+  extraData: Object;
+  extraParams: Object;
 }
 export interface JobParam extends JobUpdateParam {
   idVideoTemplate: String;
@@ -159,10 +161,10 @@ export interface FontInterface {
 }
 
 export interface AuthInterface {
-  login: (data: Object) => Promise<Object>;
-  verifyEmail: () => Promise<Object>;
-  resetPassword: (data: Object) => Promise<Object>;
-  resetPasswordEmail: (data: Object) => Promise<Object>;
+  login: (data: Object, extraParams: String) => Promise<Object>;
+  verifyEmail: (extraParams: String) => Promise<Object>;
+  resetPassword: (data: Object, extraParams: String) => Promise<Object>;
+  resetPasswordEmail: (data: Object, extraParams: String) => Promise<Object>;
 }
 
 export interface VideoTemplateInterface {
@@ -172,25 +174,27 @@ export interface VideoTemplateInterface {
     query: String,
     sortBy: String,
     orderBy: String,
-    idCreator: String
+    idCreator: String,
+    extraParams?: String
   ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
-  get: (id: String) => Promise<VideoTemplate | {}>;
-  create: (data: String) => Promise<any>;
-  update: (id: String, data: Object) => Promise<any>;
-  updateMany: (data: Object) => Promise<any>;
-  delete: (id: String) => Promise<any>;
-  deleteMany: (data: Object) => Promise<any>;
+  get: (id: String, extraParams?: String) => Promise<VideoTemplate | {}>;
+  create: (data: String, extraParams?: String) => Promise<any>;
+  update: (id: String, data: Object, extraParams?: String) => Promise<any>;
+  updateMany: (data: Object, extraParams?: String) => Promise<any>;
+  delete: (id: String, extraParams?: String) => Promise<any>;
+  deleteMany: (data: Object, extraParams?: String) => Promise<any>;
 }
 
 export interface UserInterface {
   getAll: (
     page: Number,
-    size: Number
+    size: Number,
+    extraParams?: String
   ) => Promise<{ data: Array<User | []>; count: Number }>;
-  get: (id: String) => Promise<User | {}>;
-  create: (user: User) => Promise<any>;
-  delete: (id: String, data: Object) => Promise<any>;
-  update: (id: String, data: Object) => Promise<any>;
+  get: (id: String, extraParams?: String) => Promise<User | {}>;
+  create: (user: User, extraParams?: String) => Promise<any>;
+  delete: (id: String, data: Object, extraParams?: String) => Promise<any>;
+  update: (id: String, data: Object, extraParams?: String) => Promise<any>;
 }
 export interface JobInterface {
   getAll: (
@@ -199,16 +203,20 @@ export interface JobInterface {
     query: String,
     sortBy: String,
     orderBy: String,
-    idCreator: String
+    extraParams?: String
   ) => Promise<{ data: Array<Job | []>; count: Number }>;
-  get: (id: String, populateVideoTemplate: Boolean) => Promise<Job | []>;
+  get: (
+    id: String,
+    populateVideoTemplate: Boolean,
+    extraParams?: String
+  ) => Promise<Job | []>;
 
   create: (params: JobParam) => Promise<any>;
 
-  update: (id: String, params: JobUpdateParam) => Promise<any>;
-  updateMultiple: (data: Array<MultiJobUpdates>) => Promise<any>;
-  delete: (id: String) => Promise<any>;
-  deleteMultiple: (data: Array<{ id: String }>) => Promise<any>;
+  update: (id: String, params: Object, extraParams?: String) => Promise<any>;
+  updateMultiple: (data: Object, extraParams?: String) => Promise<any>;
+  delete: (id: String, extraParams?: String) => Promise<any>;
+  deleteMultiple: (data: Object, extraParams?: String) => Promise<any>;
 }
 
 export default interface APIInterface {
