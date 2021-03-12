@@ -196,6 +196,12 @@ export interface UserInterface {
   delete: (id: String, data: Object, extraParams?: String) => Promise<any>;
   update: (id: String, data: Object, extraParams?: String) => Promise<any>;
 }
+
+export interface WebhookInterface {
+  getAll: () => Promise<{ data: Array<any | []> }>;
+  get: (id: String) => Promise<any | {}>;
+  create: (webhook: any) => Promise<any>;
+}
 export interface JobInterface {
   getAll: (
     page: Number,
