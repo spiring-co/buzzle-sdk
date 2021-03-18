@@ -43,7 +43,7 @@ function Auth(baseUrl, headers) {
     return {
         login: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/login?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/login?" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -52,7 +52,7 @@ function Auth(baseUrl, headers) {
         }); },
         verifyEmail: function (extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/verifyEmail?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/verifyEmail?" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];
@@ -60,7 +60,7 @@ function Auth(baseUrl, headers) {
         }); },
         resetPassword: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPassword?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPassword?" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -69,7 +69,7 @@ function Auth(baseUrl, headers) {
         }); },
         resetPasswordEmail: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPasswordEmail?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPasswordEmail?" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify(data),

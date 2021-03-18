@@ -46,7 +46,7 @@ function VideoTemplate(baseUrl, headers) {
             if (orderBy === void 0) { orderBy = "desc"; }
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query + "&$" + objectToQueryString(extraParams), {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query + "&" + objectToQueryString(extraParams), {
                             method: "GET",
                             headers: headers,
                         })];
@@ -55,7 +55,7 @@ function VideoTemplate(baseUrl, headers) {
         },
         get: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];
@@ -63,7 +63,7 @@ function VideoTemplate(baseUrl, headers) {
         }); },
         create: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -72,7 +72,7 @@ function VideoTemplate(baseUrl, headers) {
         }); },
         update: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -81,7 +81,7 @@ function VideoTemplate(baseUrl, headers) {
         }); },
         updateMany: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -90,7 +90,7 @@ function VideoTemplate(baseUrl, headers) {
         }); },
         delete: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                     })];
@@ -98,7 +98,7 @@ function VideoTemplate(baseUrl, headers) {
         }); },
         deleteMany: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                         body: JSON.stringify(data),

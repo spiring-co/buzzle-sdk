@@ -55,14 +55,14 @@ function Job(baseUrl, headers) {
         },
         get: function (id, populateVideoTemplate, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate + "&$" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate + "&" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
             });
         }); },
         create: function (_a) {
             var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs, extra = _a.extra, extraParams = _a.extraParams;
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_b) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?$" + objectToQueryString(extraParams), {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
                             method: "POST",
                             headers: headers,
                             body: JSON.stringify({
@@ -79,7 +79,7 @@ function Job(baseUrl, headers) {
         },
         update: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -88,7 +88,7 @@ function Job(baseUrl, headers) {
         }); },
         updateMultiple: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -97,7 +97,7 @@ function Job(baseUrl, headers) {
         }); },
         delete: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                     })];
@@ -105,7 +105,7 @@ function Job(baseUrl, headers) {
         }); },
         deleteMultiple: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                         body: JSON.stringify(data),

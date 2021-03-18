@@ -43,7 +43,7 @@ function Creator(baseUrl, headers) {
     return {
         getAll: function (page, size, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users?page=" + page + "&size=" + size + "&$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users?page=" + page + "&size=" + size + "&" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];
@@ -51,7 +51,7 @@ function Creator(baseUrl, headers) {
         }); },
         get: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];
@@ -59,7 +59,7 @@ function Creator(baseUrl, headers) {
         }); },
         delete: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                         body: JSON.stringify(data),
@@ -68,7 +68,7 @@ function Creator(baseUrl, headers) {
         }); },
         create: function (user, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users?" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify(user),
@@ -77,7 +77,7 @@ function Creator(baseUrl, headers) {
         }); },
         update: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/users/" + id + "?" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
                         body: JSON.stringify(data),

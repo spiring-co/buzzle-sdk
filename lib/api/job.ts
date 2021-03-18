@@ -26,7 +26,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
 
     get: async (id, populateVideoTemplate, extraParams) => {
       return apiRequest(
-        `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}&$${objectToQueryString(
+        `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}&${objectToQueryString(
           extraParams
         )}`,
         { method: "GET", headers }
@@ -42,7 +42,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       extra,
       extraParams,
     }) => {
-      return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
         extraParams
       )}`, {
         method: "POST",
@@ -59,7 +59,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
 
     update: async (id, data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs/${id}?$${objectToQueryString(
+      return apiRequest(`${baseUrl}/jobs/${id}?${objectToQueryString(
         extraParams
       )}`, {
         method: "PUT",
@@ -69,7 +69,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
 
     updateMultiple: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
         extraParams
       )}`, {
         method: "PUT",
@@ -79,7 +79,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
 
     delete: async (id, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs/${id}?$${objectToQueryString(
+      return apiRequest(`${baseUrl}/jobs/${id}?${objectToQueryString(
         extraParams
       )}`, {
         method: "DELETE",
@@ -87,7 +87,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       });
     },
     deleteMultiple: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
         extraParams
       )}`, {
         method: "DELETE",

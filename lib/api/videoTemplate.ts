@@ -16,7 +16,7 @@ export default function VideoTemplate(
       extraParams
     ) => {
       return apiRequest(
-        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}&$${objectToQueryString(
+        `${baseUrl}/videoTemplates?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}&${objectToQueryString(
           extraParams
         )}`,
         {
@@ -26,18 +26,18 @@ export default function VideoTemplate(
       );
     },
     get: async (id, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}?$${objectToQueryString(
-          extraParams
-        )}`, {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "GET",
         headers,
       });
     },
 
     create: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates?$${objectToQueryString(
-          extraParams
-        )}`, {
+      return apiRequest(`${baseUrl}/videoTemplates?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "POST",
         headers,
         body: JSON.stringify(data),
@@ -45,18 +45,18 @@ export default function VideoTemplate(
     },
 
     update: async (id, data, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}?$${objectToQueryString(
-          extraParams
-        )}`, {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
       });
     },
     updateMany: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates?$${objectToQueryString(
-          extraParams
-        )}`, {
+      return apiRequest(`${baseUrl}/videoTemplates?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
@@ -64,17 +64,17 @@ export default function VideoTemplate(
     },
 
     delete: async (id, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}?$${objectToQueryString(
-          extraParams
-        )}`, {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "DELETE",
         headers,
       });
     },
-    deleteMany: async (data,extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates?$${objectToQueryString(
-          extraParams
-        )}`, {
+    deleteMany: async (data, extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "DELETE",
         headers,
         body: JSON.stringify(data),
