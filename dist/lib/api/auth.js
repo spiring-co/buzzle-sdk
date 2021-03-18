@@ -37,71 +37,45 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var apiRequest_1 = require("../helpers/apiRequest");
-function Creator(baseUrl, headers) {
+var objectToQueryString = require("../helpers/objectToQueryString");
+function Auth(baseUrl, headers) {
     var _this = this;
     return {
-        getAll: function (page, size) { return __awaiter(_this, void 0, void 0, function () {
+        login: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators?page=" + page + "&size=" + size, {
-                        method: "GET",
-                        headers: headers,
-                    })];
-            });
-        }); },
-        get: function (id) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators/" + id, {
-                        method: "GET",
-                        headers: headers,
-                    })];
-            });
-        }); },
-        create: function (user) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators", {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/login?$" + objectToQueryString(extraParams), {
                         method: "POST",
                         headers: headers,
-                        body: JSON.stringify(user),
-                    })];
-            });
-        }); },
-        changePassword: function (id, data) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators/" + id + "/changePassword", {
-                        method: "PUT",
-                        headers: headers,
                         body: JSON.stringify(data),
                     })];
             });
         }); },
-        update: function (id, data) { return __awaiter(_this, void 0, void 0, function () {
+        verifyEmail: function (extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators/" + id, {
-                        method: "PUT",
-                        headers: headers,
-                        body: JSON.stringify(data),
-                    })];
-            });
-        }); },
-        getVideoTemplates: function (id, page, size) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators/" + id + "/videoTemplates?page=" + page + "&size=" + size, {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/verifyEmail?$" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];
             });
         }); },
-        getJobs: function (id, page, size, query) {
-            if (query === void 0) { query = ""; }
-            return __awaiter(_this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/creators/" + id + "/jobs?page=" + page + "&size=" + size + "&query=" + query, {
-                            method: "GET",
-                            headers: headers,
-                        })];
-                });
+        resetPassword: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPassword?$" + objectToQueryString(extraParams), {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(data),
+                    })];
             });
-        },
+        }); },
+        resetPasswordEmail: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/auth/resetPasswordEmail?$" + objectToQueryString(extraParams), {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify(data),
+                    })];
+            });
+        }); },
     };
 }
-exports.default = Creator;
+exports.default = Auth;

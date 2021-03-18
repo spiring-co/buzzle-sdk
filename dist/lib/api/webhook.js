@@ -37,74 +37,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var apiRequest_1 = require("../helpers/apiRequest");
-var objectToQueryString = require("../helpers/objectToQueryString");
-function VideoTemplate(baseUrl, headers) {
+function Creator(baseUrl, headers) {
     var _this = this;
     return {
-        getAll: function (page, size, query, sortBy, orderBy, extraParams) {
-            if (sortBy === void 0) { sortBy = "dateCreated"; }
-            if (orderBy === void 0) { orderBy = "desc"; }
-            return __awaiter(_this, void 0, void 0, function () {
-                return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query + "&$" + objectToQueryString(extraParams), {
-                            method: "GET",
-                            headers: headers,
-                        })];
-                });
-            });
-        },
-        get: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+        getAll: function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/webhooks", {
                         method: "GET",
                         headers: headers,
                     })];
             });
         }); },
-        create: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+        get: function (id) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/webhooks/" + id, {
+                        method: "GET",
+                        headers: headers,
+                    })];
+            });
+        }); },
+        create: function (webhook) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/webhooks", {
                         method: "POST",
                         headers: headers,
-                        body: JSON.stringify(data),
-                    })];
-            });
-        }); },
-        update: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
-                        method: "PUT",
-                        headers: headers,
-                        body: JSON.stringify(data),
-                    })];
-            });
-        }); },
-        updateMany: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
-                        method: "PUT",
-                        headers: headers,
-                        body: JSON.stringify(data),
-                    })];
-            });
-        }); },
-        delete: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?$" + objectToQueryString(extraParams), {
-                        method: "DELETE",
-                        headers: headers,
-                    })];
-            });
-        }); },
-        deleteMany: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates?$" + objectToQueryString(extraParams), {
-                        method: "DELETE",
-                        headers: headers,
-                        body: JSON.stringify(data),
+                        body: JSON.stringify(webhook),
                     })];
             });
         }); },
     };
 }
-exports.default = VideoTemplate;
+exports.default = Creator;

@@ -114,7 +114,7 @@ export interface JobUpdateParam {
   data: Object;
   renderPrefs: Object;
   extraData: Object;
-    extraParams?: Object;
+  extraParams: Object;
 }
 export interface JobParam extends JobUpdateParam {
   idVideoTemplate: String;
@@ -161,10 +161,10 @@ export interface FontInterface {
 }
 
 export interface AuthInterface {
-  login: (data: Object,    extraParams?: Object) => Promise<Object>;
-  verifyEmail: (  extraParams?: String) => Promise<Object>;
-  resetPassword: (data: Object,    extraParams?: Object) => Promise<Object>;
-  resetPasswordEmail: (data: Object,    extraParams?: Object) => Promise<Object>;
+  login: (data: Object, extraParams?: Object) => Promise<Object>;
+  verifyEmail: (extraParams?: Object) => Promise<Object>;
+  resetPassword: (data: Object, extraParams?: Object) => Promise<Object>;
+  resetPasswordEmail: (data: Object, extraParams?: Object) => Promise<Object>;
 }
 
 export interface VideoTemplateInterface {
