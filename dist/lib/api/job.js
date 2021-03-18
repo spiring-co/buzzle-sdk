@@ -59,7 +59,7 @@ function Job(baseUrl, headers) {
             });
         }); },
         create: function (_a) {
-            var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs, extraData = _a.extraData, extraParams = _a.extraParams;
+            var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs, extra = _a.extra, extraParams = _a.extraParams;
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_b) {
                     return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?$" + objectToQueryString(extraParams), {
@@ -71,7 +71,7 @@ function Job(baseUrl, headers) {
                                 idVideoTemplate: idVideoTemplate,
                                 idVersion: idVersion,
                                 renderPrefs: renderPrefs,
-                                extraData: extraData,
+                                extra: extra,
                             }),
                         })];
                 });
@@ -82,7 +82,7 @@ function Job(baseUrl, headers) {
                 return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?$" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
-                        body: JSON.stringify({ data: data }),
+                        body: JSON.stringify(data),
                     })];
             });
         }); },
@@ -91,7 +91,7 @@ function Job(baseUrl, headers) {
                 return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?$" + objectToQueryString(extraParams), {
                         method: "PUT",
                         headers: headers,
-                        body: JSON.stringify({ data: data }),
+                        body: JSON.stringify(data),
                     })];
             });
         }); },

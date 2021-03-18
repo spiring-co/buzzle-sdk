@@ -109,7 +109,7 @@ export interface JobUpdateParam {
     actions?: Object;
     data: Object;
     renderPrefs: Object;
-    extraData: Object;
+    extra: Object;
     extraParams: Object;
 }
 export interface JobParam extends JobUpdateParam {

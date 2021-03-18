@@ -39,12 +39,12 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       idVideoTemplate,
       idVersion,
       renderPrefs,
-      extraData,
+      extra,
       extraParams,
     }) => {
       return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
-          extraParams
-        )}`, {
+        extraParams
+      )}`, {
         method: "POST",
         headers,
         body: JSON.stringify({
@@ -53,43 +53,43 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
           idVideoTemplate,
           idVersion,
           renderPrefs,
-          extraData,
+          extra,
         }),
       });
     },
 
     update: async (id, data, extraParams) => {
       return apiRequest(`${baseUrl}/jobs/${id}?$${objectToQueryString(
-          extraParams
-        )}`, {
+        extraParams
+      )}`, {
         method: "PUT",
         headers,
-        body: JSON.stringify({ data }),
+        body: JSON.stringify(data),
       });
     },
 
     updateMultiple: async (data, extraParams) => {
       return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
-          extraParams
-        )}`, {
+        extraParams
+      )}`, {
         method: "PUT",
         headers,
-        body: JSON.stringify({ data }),
+        body: JSON.stringify(data),
       });
     },
 
     delete: async (id, extraParams) => {
       return apiRequest(`${baseUrl}/jobs/${id}?$${objectToQueryString(
-          extraParams
-        )}`, {
+        extraParams
+      )}`, {
         method: "DELETE",
         headers,
       });
     },
     deleteMultiple: async (data, extraParams) => {
       return apiRequest(`${baseUrl}/jobs?$${objectToQueryString(
-          extraParams
-        )}`, {
+        extraParams
+      )}`, {
         method: "DELETE",
         headers,
         body: JSON.stringify(data),
