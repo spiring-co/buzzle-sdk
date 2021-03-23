@@ -1,12 +1,12 @@
 import apiRequest from "../helpers/apiRequest";
 import { UserInterface } from "../interfaces";
 
-export default function Creator(
+export default function User(
   baseUrl: String,
   headers: Object
 ): UserInterface {
   return {
-    getAll: async (page, size, extraParams) => {
+    getAll: async (page, size, extraParams = "") => {
       return apiRequest(
         `${baseUrl}/users?page=${page}&size=${size}&${extraParams}`,
         {
@@ -15,7 +15,7 @@ export default function Creator(
         }
       );
     },
-    get: async (id, extraParams) => {
+    get: async (id, extraParams = "") => {
       return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
         method: "GET",
         headers,
