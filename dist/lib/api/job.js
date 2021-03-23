@@ -37,31 +37,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var apiRequest_1 = require("../helpers/apiRequest");
+var objectToQueryString = require("../helpers/objectToQueryString");
 function Job(baseUrl, headers) {
     var _this = this;
     return {
-        getAll: function (page, size, query, sortBy, orderBy, idCreator) {
+        getAll: function (page, size, query, sortBy, orderBy, extraParams) {
             if (sortBy === void 0) { sortBy = "dateCreated"; }
             if (orderBy === void 0) { orderBy = "desc"; }
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&idCreator=" + idCreator + "&" + query, {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query + "&" + objectToQueryString(extraParams), {
                             method: "GET",
                             headers: headers,
                         })];
                 });
             });
         },
-        get: function (id, populateVideoTemplate) { return __awaiter(_this, void 0, void 0, function () {
+        get: function (id, populateVideoTemplate, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate, { method: "GET", headers: headers })];
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate + "&" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
             });
         }); },
         create: function (_a) {
-            var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs;
+            var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs, extra = _a.extra, extraParams = _a.extraParams;
             return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_b) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs", {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
                             method: "POST",
                             headers: headers,
                             body: JSON.stringify({
@@ -70,62 +71,45 @@ function Job(baseUrl, headers) {
                                 idVideoTemplate: idVideoTemplate,
                                 idVersion: idVersion,
                                 renderPrefs: renderPrefs,
+                                extra: extra,
                             }),
                         })];
                 });
             });
         },
-        update: function (id, _a) {
-            var actions = _a.actions, data = _a.data, renderPrefs = _a.renderPrefs;
-            return __awaiter(_this, void 0, void 0, function () {
-                return __generator(this, function (_b) {
-                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id, {
-                            method: "PUT",
-                            headers: headers,
-                            body: JSON.stringify({ actions: actions, data: data, renderPrefs: renderPrefs }),
-                        })];
-                });
-            });
-        },
-        updateMultiple: function (data) { return __awaiter(_this, void 0, void 0, function () {
+        update: function (id, data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, Promise.all(data.map(function (_a) {
-                            var id = _a.id, actions = _a.actions, data = _a.data, renderPrefs = _a.renderPrefs;
-                            return apiRequest_1.default(baseUrl + "/jobs/" + id, {
-                                method: "PUT",
-                                headers: headers,
-                                body: JSON.stringify({ actions: actions, data: data, renderPrefs: renderPrefs }),
-                            });
-                        }))];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?" + objectToQueryString(extraParams), {
+                        method: "PUT",
+                        headers: headers,
+                        body: JSON.stringify(data),
+                    })];
             });
         }); },
-        delete: function (id) { return __awaiter(_this, void 0, void 0, function () {
+        updateMultiple: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id, {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
+                        method: "PUT",
+                        headers: headers,
+                        body: JSON.stringify(data),
+                    })];
+            });
+        }); },
+        delete: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?" + objectToQueryString(extraParams), {
                         method: "DELETE",
                         headers: headers,
                     })];
             });
         }); },
-        deleteMultiple: function (data) { return __awaiter(_this, void 0, void 0, function () {
+        deleteMultiple: function (data, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, Promise.all(data.map(function (_a) {
-                            var id = _a.id;
-                            return apiRequest_1.default(baseUrl + "/jobs/" + id, {
-                                method: "DELETE",
-                                headers: headers,
-                            });
-                        }))];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs?" + objectToQueryString(extraParams), {
+                        method: "DELETE",
+                        headers: headers,
+                        body: JSON.stringify(data),
+                    })];
             });
         }); },
     };

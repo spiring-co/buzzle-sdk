@@ -1,5 +1,6 @@
 import apiRequest from "../helpers/apiRequest";
 import { UserInterface } from "../interfaces";
+import * as objectToQueryString from "../helpers/objectToQueryString";
 
 export default function User(
   baseUrl: String,
@@ -8,22 +9,28 @@ export default function User(
   return {
     getAll: async (page, size, extraParams = "") => {
       return apiRequest(
-        `${baseUrl}/users?page=${page}&size=${size}&${extraParams}`,
+        `${baseUrl}/users?page=${page}&size=${size}&${objectToQueryString(
+          extraParams
+        )}`,
         {
           method: "GET",
           headers,
         }
       );
     },
-    get: async (id, extraParams = "") => {
-      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
+    get: async (id, extraParams) => {
+      return apiRequest(`${baseUrl}/users/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "GET",
         headers,
       });
     },
 
     delete: async (id, data, extraParams) => {
-      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
+      return apiRequest(`${baseUrl}/users/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "DELETE",
         headers,
         body: JSON.stringify(data),
@@ -31,14 +38,18 @@ export default function User(
     },
 
     create: async (user, extraParams) => {
-      return apiRequest(`${baseUrl}/users?${extraParams}`, {
+      return apiRequest(`${baseUrl}/users?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "POST",
         headers,
         body: JSON.stringify(user),
       });
     },
     update: async (id, data, extraParams) => {
-      return apiRequest(`${baseUrl}/users/${id}?${extraParams}`, {
+      return apiRequest(`${baseUrl}/users/${id}?${objectToQueryString(
+        extraParams
+      )}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
