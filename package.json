@@ -1,14 +1,39 @@
 {
   "name": "buzzle-sdk",
-  "version": "1.0.0",
-  "description": "sdk for buzzle api",
-  "main": "authApi.js",
+  "version": "1.1.3",
+  "description": "Official SDK for Buzzle Platform APIs",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\" && exit 0",
+    "build": "tsc"
   },
-  "author": "",
+  "author": "spiring",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spiring.co/buzzle-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/spiring-co/buzzle-sdk/issues"
+  },
+  "homepage": "https://github.com/spiring-co/buzzle-sdk#readme",
+  "keywords": [
+    "buzzle",
+    "video",
+    "platform",
+    "api",
+    "apis",
+    "upload",
+    "download",
+    "sdk"
+  ],
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "isomorphic-fetch": "^2.2.1",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "typescript": "^4.0.3"
   }
 }
