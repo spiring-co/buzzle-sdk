@@ -60,7 +60,7 @@ function Job(baseUrl, headers) {
         }); },
         getCount: function (dateUpdated, dateStarted) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/misc/count?dateUpdated=" + dateUpdated + "&dateStarted=" + dateStarted + "}", { method: "GET", headers: headers })];
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/stats/count?dateUpdated=" + dateUpdated + "&dateStarted=" + dateStarted + "}", { method: "GET", headers: headers })];
             });
         }); },
         create: function (_a) {

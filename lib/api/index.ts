@@ -3,7 +3,7 @@ import Font from "./font";
 import User from "./user";
 import VideoTemplate from "./videoTemplate";
 import Search from "./search";
-import Webhook from "./Webhook";
+import Webhook from "./webhook";
 import APIInterface, { APIParam } from "../interfaces";
 
 export default function Api(params: APIParam): APIInterface {
