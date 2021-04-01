@@ -5,6 +5,7 @@ var font_1 = require("./font");
 var user_1 = require("./user");
 var videoTemplate_1 = require("./videoTemplate");
 var search_1 = require("./search");
+var Webhook_1 = require("./Webhook");
 function Api(params) {
     var baseUrl = params.baseUrl, authToken = params.authToken;
     var headers = {
@@ -18,6 +19,7 @@ function Api(params) {
         User: user_1.default(baseUrl, headers),
         VideoTemplate: videoTemplate_1.default(baseUrl, headers),
         Search: search_1.default(baseUrl, headers),
+        Webhook: Webhook_1.default(baseUrl, headers),
     };
 }
 exports.default = Api;

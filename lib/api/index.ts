@@ -3,6 +3,7 @@ import Font from "./font";
 import User from "./user";
 import VideoTemplate from "./videoTemplate";
 import Search from "./search";
+import Webhook from "./Webhook";
 import APIInterface, { APIParam } from "../interfaces";
 
 export default function Api(params: APIParam): APIInterface {
@@ -19,5 +20,6 @@ export default function Api(params: APIParam): APIInterface {
     User: User(baseUrl, headers),
     VideoTemplate: VideoTemplate(baseUrl, headers),
     Search: Search(baseUrl, headers),
+    Webhook: Webhook(baseUrl, headers),
   };
 }
