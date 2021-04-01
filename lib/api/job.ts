@@ -33,7 +33,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
     getCount: async (dateUpdated, dateStarted) => {
       return apiRequest(
-        `${baseUrl}/misc/count?dateUpdated=${dateUpdated}&dateStarted=${dateStarted}}`,
+        `${baseUrl}/stats/count?dateUpdated=${dateUpdated}&dateStarted=${dateStarted}}`,
         { method: "GET", headers }
       );
     },
