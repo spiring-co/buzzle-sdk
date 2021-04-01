@@ -216,6 +216,7 @@ export interface JobInterface {
     populateVideoTemplate: Boolean,
     extraParams?: Object
   ) => Promise<Job | []>;
+  getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job | []>;
 
   create: (params: JobParam) => Promise<any>;
 
