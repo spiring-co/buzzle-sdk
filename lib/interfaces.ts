@@ -232,6 +232,7 @@ export default interface APIInterface {
   User: UserInterface;
   VideoTemplate: VideoTemplateInterface;
   Search: SearchInterface;
+  Webhook: WebhookInterface;
 }
 
 // "main": "dist/lib/index.js",

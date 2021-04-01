@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var apiRequest_1 = require("../helpers/apiRequest");
-function Creator(baseUrl, headers) {
+function Webhook(baseUrl, headers) {
     var _this = this;
     return {
         getAll: function () { return __awaiter(_this, void 0, void 0, function () {
@@ -67,4 +67,4 @@ function Creator(baseUrl, headers) {
         }); },
     };
 }
-exports.default = Creator;
+exports.default = Webhook;
