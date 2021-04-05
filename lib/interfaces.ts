@@ -211,6 +211,14 @@ export interface JobInterface {
     orderBy: String,
     extraParams?: Object
   ) => Promise<{ data: Array<Job | []>; count: Number }>;
+  getAllTitles: (
+    page?: Number,
+    size?: Number,
+    query?: String,
+    sortBy?: String,
+    orderBy?: String,
+    extraParams?: Object
+  ) => Promise<{ data: Array<Job | []>; count: Number }>;
   get: (
     id: String,
     populateVideoTemplate: Boolean,

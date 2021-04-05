@@ -22,6 +22,24 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
         }
       );
     },
+    getAllTitles: async (
+      page,
+      size,
+      query,
+      sortBy = "dateCreated",
+      orderBy = "desc",
+      extraParams
+    ) => {
+      return apiRequest(
+        `${baseUrl}/stats/countTitles?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}&${objectToQueryString(
+          extraParams
+        )}`,
+        {
+          method: "GET",
+          headers,
+        }
+      );
+    },
 
     get: async (id, populateVideoTemplate, extraParams) => {
       return apiRequest(
