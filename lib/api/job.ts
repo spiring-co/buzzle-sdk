@@ -2,7 +2,6 @@ import apiRequest from "../helpers/apiRequest";
 import { JobInterface } from "../interfaces";
 import * as objectToQueryString from "../helpers/objectToQueryString";
 
-
 export default function Job(baseUrl: String, headers: Object): JobInterface {
   return {
     getAll: async (
@@ -23,12 +22,36 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
         }
       );
     },
+    getAllTitles: async (
+      page,
+      size,
+      query,
+      sortBy = "dateCreated",
+      orderBy = "desc",
+      extraParams
+    ) => {
+      return apiRequest(
+        `${baseUrl}/stats/countTitles?page=${page}&size=${size}&sortBy=${sortBy}&orderBy=${orderBy}&${query}&${objectToQueryString(
+          extraParams
+        )}`,
+        {
+          method: "GET",
+          headers,
+        }
+      );
+    },
 
     get: async (id, populateVideoTemplate, extraParams) => {
       return apiRequest(
         `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}&${objectToQueryString(
           extraParams
         )}`,
+        { method: "GET", headers }
+      );
+    },
+    getCount: async (dateUpdated, dateStarted) => {
+      return apiRequest(
+        `${baseUrl}/stats/count?dateUpdated=${dateUpdated}&dateStarted=${dateStarted}}`,
         { method: "GET", headers }
       );
     },
@@ -42,9 +65,7 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       extra,
       extraParams,
     }) => {
-      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
-        extraParams
-      )}`, {
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(extraParams)}`, {
         method: "POST",
         headers,
         body: JSON.stringify({
@@ -59,19 +80,18 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
 
     update: async (id, data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs/${id}?${objectToQueryString(
-        extraParams
-      )}`, {
-        method: "PUT",
-        headers,
-        body: JSON.stringify(data),
-      });
+      return apiRequest(
+        `${baseUrl}/jobs/${id}?${objectToQueryString(extraParams)}`,
+        {
+          method: "PUT",
+          headers,
+          body: JSON.stringify(data),
+        }
+      );
     },
 
     updateMultiple: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
-        extraParams
-      )}`, {
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(extraParams)}`, {
         method: "PUT",
         headers,
         body: JSON.stringify(data),
@@ -79,17 +99,16 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
     },
 
     delete: async (id, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs/${id}?${objectToQueryString(
-        extraParams
-      )}`, {
-        method: "DELETE",
-        headers,
-      });
+      return apiRequest(
+        `${baseUrl}/jobs/${id}?${objectToQueryString(extraParams)}`,
+        {
+          method: "DELETE",
+          headers,
+        }
+      );
     },
     deleteMultiple: async (data, extraParams) => {
-      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(
-        extraParams
-      )}`, {
+      return apiRequest(`${baseUrl}/jobs?${objectToQueryString(extraParams)}`, {
         method: "DELETE",
         headers,
         body: JSON.stringify(data),

@@ -1,7 +1,7 @@
 import apiRequest from "../helpers/apiRequest";
 import { WebhookInterface } from "../interfaces";
 
-export default function Creator(
+export default function Webhook(
   baseUrl: String,
   headers: Object
 ): WebhookInterface {

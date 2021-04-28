@@ -192,6 +192,7 @@ export interface JobInterface {
         count: Number;
     }>;
     get: (id: String, populateVideoTemplate: Boolean, extraParams?: Object) => Promise<Job | []>;
+    getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job | []>;
     create: (params: JobParam) => Promise<any>;
     update: (id: String, params: Object, extraParams?: Object) => Promise<any>;
     updateMultiple: (data: Object, extraParams?: Object) => Promise<any>;
@@ -204,4 +205,5 @@ export default interface APIInterface {
     User: UserInterface;
     VideoTemplate: VideoTemplateInterface;
     Search: SearchInterface;
+    Webhook: WebhookInterface;
 }

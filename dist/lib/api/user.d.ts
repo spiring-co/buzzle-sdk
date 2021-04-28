@@ -1,2 +1,2 @@
 import { UserInterface } from "../interfaces";
-export default function Creator(baseUrl: String, headers: Object): UserInterface;
+export default function User(baseUrl: String, headers: Object): UserInterface;

@@ -58,6 +58,11 @@ function Job(baseUrl, headers) {
                 return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate + "&" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
             });
         }); },
+        getCount: function (dateUpdated, dateStarted) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/stats/count?dateUpdated=" + dateUpdated + "&dateStarted=" + dateStarted + "}", { method: "GET", headers: headers })];
+            });
+        }); },
         create: function (_a) {
             var actions = _a.actions, data = _a.data, idVideoTemplate = _a.idVideoTemplate, idVersion = _a.idVersion, renderPrefs = _a.renderPrefs, extra = _a.extra, extraParams = _a.extraParams;
             return __awaiter(_this, void 0, void 0, function () {
