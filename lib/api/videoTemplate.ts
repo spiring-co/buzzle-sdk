@@ -25,8 +25,8 @@ export default function VideoTemplate(
         }
       );
     },
-    get: async (id, extraParams) => {
-      return apiRequest(`${baseUrl}/videoTemplates/${id}?${objectToQueryString(
+    get: async (id, query,extraParams) => {
+      return apiRequest(`${baseUrl}/videoTemplates/${id}?${query}&${objectToQueryString(
         extraParams
       )}`, {
         method: "GET",

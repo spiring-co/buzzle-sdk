@@ -41,11 +41,9 @@ export default function Job(baseUrl: String, headers: Object): JobInterface {
       );
     },
 
-    get: async (id, populateVideoTemplate, extraParams) => {
+    get: async (id, query, extraParams) => {
       return apiRequest(
-        `${baseUrl}/jobs/${id}?populateVideoTemplate=${populateVideoTemplate}&${objectToQueryString(
-          extraParams
-        )}`,
+        `${baseUrl}/jobs/${id}?&${query}&${objectToQueryString(extraParams)}`,
         { method: "GET", headers }
       );
     },

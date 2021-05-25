@@ -177,7 +177,11 @@ export interface VideoTemplateInterface {
     idCreator: String,
     extraParams?: Object
   ) => Promise<{ data: Array<VideoTemplate | []>; count: Number }>;
-  get: (id: String, extraParams?: Object) => Promise<VideoTemplate | {}>;
+  get: (
+    id: String,
+    query: String,
+    extraParams?: Object
+  ) => Promise<VideoTemplate | {}>;
   create: (data: String, extraParams?: Object) => Promise<any>;
   update: (id: String, data: Object, extraParams?: Object) => Promise<any>;
   updateMany: (data: Object, extraParams?: Object) => Promise<any>;
@@ -221,7 +225,7 @@ export interface JobInterface {
   ) => Promise<{ data: Array<Job | []>; count: Number }>;
   get: (
     id: String,
-    populateVideoTemplate: Boolean,
+    query: String,
     extraParams?: Object
   ) => Promise<Job | []>;
   getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job | []>;
