@@ -162,7 +162,7 @@ export interface VideoTemplateInterface {
         data: Array<VideoTemplate | []>;
         count: Number;
     }>;
-    get: (id: String, extraParams?: Object) => Promise<VideoTemplate | {}>;
+    get: (id: String, query: String, extraParams?: Object) => Promise<VideoTemplate | {}>;
     create: (data: String, extraParams?: Object) => Promise<any>;
     update: (id: String, data: Object, extraParams?: Object) => Promise<any>;
     updateMany: (data: Object, extraParams?: Object) => Promise<any>;
@@ -191,7 +191,11 @@ export interface JobInterface {
         data: Array<Job | []>;
         count: Number;
     }>;
-    get: (id: String, populateVideoTemplate: Boolean, extraParams?: Object) => Promise<Job | []>;
+    getAllTitles: (page?: Number, size?: Number, query?: String, sortBy?: String, orderBy?: String, extraParams?: Object) => Promise<{
+        data: Array<Job | []>;
+        count: Number;
+    }>;
+    get: (id: String, query: String, extraParams?: Object) => Promise<Job | []>;
     getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job | []>;
     create: (params: JobParam) => Promise<any>;
     update: (id: String, params: Object, extraParams?: Object) => Promise<any>;

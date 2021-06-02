@@ -53,9 +53,9 @@ function VideoTemplate(baseUrl, headers) {
                 });
             });
         },
-        get: function (id, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+        get: function (id, query, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?" + objectToQueryString(extraParams), {
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/videoTemplates/" + id + "?" + query + "&" + objectToQueryString(extraParams), {
                         method: "GET",
                         headers: headers,
                     })];

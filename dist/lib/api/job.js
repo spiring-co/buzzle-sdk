@@ -53,9 +53,21 @@ function Job(baseUrl, headers) {
                 });
             });
         },
-        get: function (id, populateVideoTemplate, extraParams) { return __awaiter(_this, void 0, void 0, function () {
+        getAllTitles: function (page, size, query, sortBy, orderBy, extraParams) {
+            if (sortBy === void 0) { sortBy = "dateCreated"; }
+            if (orderBy === void 0) { orderBy = "desc"; }
+            return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, apiRequest_1.default(baseUrl + "/stats/countTitles?page=" + page + "&size=" + size + "&sortBy=" + sortBy + "&orderBy=" + orderBy + "&" + query + "&" + objectToQueryString(extraParams), {
+                            method: "GET",
+                            headers: headers,
+                        })];
+                });
+            });
+        },
+        get: function (id, query, extraParams) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?populateVideoTemplate=" + populateVideoTemplate + "&" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
+                return [2 /*return*/, apiRequest_1.default(baseUrl + "/jobs/" + id + "?&" + query + "&" + objectToQueryString(extraParams), { method: "GET", headers: headers })];
             });
         }); },
         getCount: function (dateUpdated, dateStarted) { return __awaiter(_this, void 0, void 0, function () {
