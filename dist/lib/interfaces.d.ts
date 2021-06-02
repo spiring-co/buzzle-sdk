@@ -62,7 +62,7 @@ export interface Job {
     dateFinished: String;
     renderTime: Number;
     queueTime: Number;
-    videoTemplate: VideoTemplate;
+    videoTemplate?: VideoTemplate;
 }
 export interface VideoTemplate {
     type?: String;
@@ -109,8 +109,8 @@ export interface JobUpdateParam {
     actions?: Object;
     data: Object;
     renderPrefs: Object;
-    extra: Object;
-    extraParams: Object;
+    extra?: Object;
+    extraParams?: Object;
 }
 export interface JobParam extends JobUpdateParam {
     idVideoTemplate: String;
@@ -120,30 +120,30 @@ export interface MultiJobUpdates extends JobUpdateParam {
     id: String;
 }
 export interface SearchInterface {
-    get: (text: String, page: Number, size: Number) => Promise<{
+    get: (text: String, page?: Number, size?: Number) => Promise<{
         videoTemplates: {
-            data: Array<VideoTemplate | []>;
+            data: Array<VideoTemplate>;
             count: Number;
         };
         jobs: {
-            data: Array<Job | []>;
+            data: Array<Job>;
             count: Number;
         };
         creators: {
-            data: Array<User | []>;
+            data: Array<User>;
             count: Number;
         };
     }>;
-    getJobs: (text: String, page: Number, size: Number) => Promise<{
-        data: Array<Job | []>;
+    getJobs: (text: String, page?: Number, size?: Number) => Promise<{
+        data: Array<Job>;
         count: Number;
     }>;
-    getVideoTemplates: (text: String, page: Number, size: Number) => Promise<{
-        data: Array<VideoTemplate | []>;
+    getVideoTemplates: (text: String, page?: Number, size?: Number) => Promise<{
+        data: Array<VideoTemplate>;
         count: Number;
     }>;
-    getCreators: (text: String, page: Number, size: Number) => Promise<{
-        data: Array<User | []>;
+    getCreators: (text: String, page?: Number, size?: Number) => Promise<{
+        data: Array<User>;
         count: Number;
     }>;
 }
@@ -158,11 +158,11 @@ export interface AuthInterface {
     resetPasswordEmail: (data: Object, extraParams?: Object) => Promise<Object>;
 }
 export interface VideoTemplateInterface {
-    getAll: (page: Number, size: Number, query: String, sortBy: String, orderBy: String, idCreator: String, extraParams?: Object) => Promise<{
-        data: Array<VideoTemplate | []>;
+    getAll: (page?: Number, size?: Number, query?: String, sortBy?: String, orderBy?: String, idCreator?: String, extraParams?: Object) => Promise<{
+        data: Array<VideoTemplate>;
         count: Number;
     }>;
-    get: (id: String, query: String, extraParams?: Object) => Promise<VideoTemplate | {}>;
+    get: (id: String, query?: String, extraParams?: Object) => Promise<VideoTemplate | {}>;
     create: (data: String, extraParams?: Object) => Promise<any>;
     update: (id: String, data: Object, extraParams?: Object) => Promise<any>;
     updateMany: (data: Object, extraParams?: Object) => Promise<any>;
@@ -170,8 +170,8 @@ export interface VideoTemplateInterface {
     deleteMany: (data: Object, extraParams?: Object) => Promise<any>;
 }
 export interface UserInterface {
-    getAll: (page: Number, size: Number, extraParams?: Object) => Promise<{
-        data: Array<User | []>;
+    getAll: (page?: Number, size?: Number, extraParams?: Object) => Promise<{
+        data: Array<User>;
         count: Number;
     }>;
     get: (id: String, extraParams?: Object) => Promise<User | {}>;
@@ -181,24 +181,24 @@ export interface UserInterface {
 }
 export interface WebhookInterface {
     getAll: () => Promise<{
-        data: Array<any | []>;
+        data: Array<any>;
     }>;
     get: (id: String) => Promise<any | {}>;
     create: (webhook: any) => Promise<any>;
 }
 export interface JobInterface {
-    getAll: (page: Number, size: Number, query: String, sortBy: String, orderBy: String, extraParams?: Object) => Promise<{
-        data: Array<Job | []>;
+    getAll: (page?: Number, size?: Number, query?: String, sortBy?: String, orderBy?: String, extraParams?: Object) => Promise<{
+        data: Array<Job>;
         count: Number;
     }>;
     getAllTitles: (page?: Number, size?: Number, query?: String, sortBy?: String, orderBy?: String, extraParams?: Object) => Promise<{
-        data: Array<Job | []>;
+        data: Array<Job>;
         count: Number;
     }>;
-    get: (id: String, query: String, extraParams?: Object) => Promise<Job | []>;
-    getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job | []>;
+    get: (id: String, query?: String, extraParams?: Object) => Promise<Job>;
+    getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job>;
     create: (params: JobParam) => Promise<any>;
-    update: (id: String, params: Object, extraParams?: Object) => Promise<any>;
+    update: (id: String, params?: Object, extraParams?: Object) => Promise<any>;
     updateMultiple: (data: Object, extraParams?: Object) => Promise<any>;
     delete: (id: String, extraParams?: Object) => Promise<any>;
     deleteMultiple: (data: Object, extraParams?: Object) => Promise<any>;
