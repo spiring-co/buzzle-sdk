@@ -1,6 +1,6 @@
 export interface APIParam {
-  baseUrl: String;
-  authToken: String;
+  baseUrl: string;
+  authToken: string;
 }
 export enum jobState {
   "created",
@@ -18,20 +18,20 @@ export enum creatorRole {
   "Creator",
 }
 export interface VersionInterface {
-  loyaltyCurrency?: String;
-  id?: String;
-  title: String;
-  description?: String;
-  sample?: String;
-  composition: String;
-  loyaltyValue?: String;
-  averageRenderTime?: Number;
+  loyaltyCurrency?: string;
+  id?: string;
+  title: string;
+  description?: string;
+  sample?: string;
+  composition: string;
+  loyaltyValue?: string;
+  averageRenderTime?: number;
   fields: Array<{
-    key: String;
-    _id?: String;
-    type: String;
-    label: String;
-    placeholder?: String;
+    key: string;
+    _id?: string;
+    type: string;
+    label: string;
+    placeholder?: string;
     constraints?: Object;
     rendererData?: Object;
   }>;
@@ -43,70 +43,70 @@ export interface Job {
     postrender: Array<any>;
   };
   state?: jobState;
-  _id?: String;
-  idVideoTemplate: String;
-  idVersion: String;
-  data: String;
-  id?: String;
+  _id?: string;
+  idVideoTemplate: string;
+  idVersion: string;
+  data: string;
+  id?: string;
   output?: Array<{
-    _id: String;
-    label: String;
-    src: String;
-    updatedAt: String;
-    dateCreated: String;
+    _id: string;
+    label: string;
+    src: string;
+    updatedAt: string;
+    dateCreated: string;
   }>;
-  dateCreated?: String;
-  dateUpdated?: String;
+  dateCreated?: string;
+  dateUpdated?: string;
   __v?: 0;
-  dateQueued: String;
-  dateStarted: String;
-  dateFinished: String;
-  renderTime: Number;
-  queueTime: Number;
+  dateQueued: string;
+  dateStarted: string;
+  dateFinished: string;
+  renderTime: number;
+  queueTime: number;
   videoTemplate?: VideoTemplate;
 }
 export interface VideoTemplate {
-  type?: String;
-  keywords?: Array<String>;
+  type?: string;
+  keywords?: Array<string>;
   publishState?: publishState;
-  rejectionReason?: String;
+  rejectionReason?: string;
   staticAssets?: Array<{
-    name: String;
-    type: String;
-    src: String;
+    name: string;
+    type: string;
+    src: string;
   }>;
   fonts?: Array<Font>;
-  _id?: String;
-  title: String;
-  idCreator: String;
-  src: String;
+  _id?: string;
+  title: string;
+  idCreator: string;
+  src: string;
   versions: Array<VersionInterface>;
-  description?: String;
-  thumbnail?: String;
-  id?: String;
-  dateCreated?: String;
-  dateUpdated?: String;
-  __v?: Number;
+  description?: string;
+  thumbnail?: string;
+  id?: string;
+  dateCreated?: string;
+  dateUpdated?: string;
+  __v?: number;
 }
 
 export interface Font {
-  id?: String;
-  src: String;
-  name: String;
+  id?: string;
+  src: string;
+  name: string;
 }
 
 export interface User {
-  loginAttempts?: Number;
+  loginAttempts?: number;
   isVerified?: Boolean;
-  otp?: String;
-  imageUrl?: String;
+  otp?: string;
+  imageUrl?: string;
   role?: creatorRole;
-  _id?: String;
-  name: String;
-  email: String;
-  password: String;
-  id?: String;
-  __v?: Number;
+  _id?: string;
+  name: string;
+  email: string;
+  password: string;
+  id?: string;
+  __v?: number;
 }
 
 export interface JobUpdateParam {
@@ -117,46 +117,46 @@ export interface JobUpdateParam {
   extraParams?: Object;
 }
 export interface JobParam extends JobUpdateParam {
-  idVideoTemplate: String;
-  idVersion: String;
+  idVideoTemplate: string;
+  idVersion: string;
 }
 export interface MultiJobUpdates extends JobUpdateParam {
-  id: String;
+  id: string;
 }
 export interface SearchInterface {
   get: (
-    text: String,
-    page?: Number,
-    size?: Number
+    text: string,
+    page?: number,
+    size?: number
   ) => Promise<{
-    videoTemplates: { data: Array<VideoTemplate>; count: Number };
-    jobs: { data: Array<Job>; count: Number };
-    creators: { data: Array<User>; count: Number };
+    videoTemplates: { data: Array<VideoTemplate>; count: number };
+    jobs: { data: Array<Job>; count: number };
+    creators: { data: Array<User>; count: number };
   }>;
   getJobs: (
-    text: String,
-    page?: Number,
-    size?: Number
-  ) => Promise<{ data: Array<Job>; count: Number }>;
+    text: string,
+    page?: number,
+    size?: number
+  ) => Promise<{ data: Array<Job>; count: number }>;
   getVideoTemplates: (
-    text: String,
-    page?: Number,
-    size?: Number
+    text: string,
+    page?: number,
+    size?: number
   ) => Promise<{
     data: Array<VideoTemplate>;
-    count: Number;
+    count: number;
   }>;
   getCreators: (
-    text: String,
-    page?: Number,
-    size?: Number
+    text: string,
+    page?: number,
+    size?: number
   ) => Promise<{
     data: Array<User>;
-    count: Number;
+    count: number;
   }>;
 }
 export interface FontInterface {
-  get: (name: String) => Promise<Font | Object>;
+  get: (name: string) => Promise<Font | Object>;
   create: (data: Font) => Promise<Object>;
 }
 
@@ -169,67 +169,67 @@ export interface AuthInterface {
 
 export interface VideoTemplateInterface {
   getAll: (
-    page?: Number,
-    size?: Number,
-    query?: String,
-    sortBy?: String,
-    orderBy?: String,
+    page?: number,
+    size?: number,
+    query?: string,
+    sortBy?: string,
+    orderBy?: string,
     extraParams?: Object
-  ) => Promise<{ data: Array<VideoTemplate>; count: Number }>;
+  ) => Promise<{ data: Array<VideoTemplate>; count: number }>;
   get: (
-    id: String,
-    query?: String,
+    id: string,
+    query?: string,
     extraParams?: Object
-  ) => Promise<VideoTemplate | {}>;
-  create: (data: String, extraParams?: Object) => Promise<any>;
-  update: (id: String, data: Object, extraParams?: Object) => Promise<any>;
+  ) => Promise<VideoTemplate>;
+  create: (data: string, extraParams?: Object) => Promise<any>;
+  update: (id: string, data: Object, extraParams?: Object) => Promise<any>;
   updateMany: (data: Object, extraParams?: Object) => Promise<any>;
-  delete: (id: String, extraParams?: Object) => Promise<any>;
+  delete: (id: string, extraParams?: Object) => Promise<any>;
   deleteMany: (data: Object, extraParams?: Object) => Promise<any>;
 }
 
 export interface UserInterface {
   getAll: (
-    page?: Number,
-    size?: Number,
+    page?: number,
+    size?: number,
     extraParams?: Object
-  ) => Promise<{ data: Array<User>; count: Number }>;
-  get: (id: String, extraParams?: Object) => Promise<User | {}>;
+  ) => Promise<{ data: Array<User>; count: number }>;
+  get: (id: string, extraParams?: Object) => Promise<User>;
   create: (user: User, extraParams?: Object) => Promise<any>;
-  delete: (id: String, data: Object, extraParams?: Object) => Promise<any>;
-  update: (id: String, data: Object, extraParams?: Object) => Promise<any>;
+  delete: (id: string, data: Object, extraParams?: Object) => Promise<any>;
+  update: (id: string, data: Object, extraParams?: Object) => Promise<any>;
 }
 
 export interface WebhookInterface {
   getAll: () => Promise<{ data: Array<any> }>;
-  get: (id: String) => Promise<any | {}>;
+  get: (id: string) => Promise<any>;
   create: (webhook: any) => Promise<any>;
 }
 export interface JobInterface {
   getAll: (
-    page?: Number,
-    size?: Number,
-    query?: String,
-    sortBy?: String,
-    orderBy?: String,
+    page?: number,
+    size?: number,
+    query?: string,
+    sortBy?: string,
+    orderBy?: string,
     extraParams?: Object
-  ) => Promise<{ data: Array<Job>; count: Number }>;
+  ) => Promise<{ data: Array<Job>; count: number }>;
   getAllTitles: (
-    page?: Number,
-    size?: Number,
-    query?: String,
-    sortBy?: String,
-    orderBy?: String,
+    page?: number,
+    size?: number,
+    query?: string,
+    sortBy?: string,
+    orderBy?: string,
     extraParams?: Object
-  ) => Promise<{ data: Array<Job>; count: Number }>;
-  get: (id: String, query?: String, extraParams?: Object) => Promise<Job>;
+  ) => Promise<{ data: Array<Job>; count: number }>;
+  get: (id: string, query?: string, extraParams?: Object) => Promise<Job>;
   getCount: (dateUpdated?: any, dateStarted?: any) => Promise<Job>;
 
   create: (params: JobParam) => Promise<any>;
 
-  update: (id: String, params?: Object, extraParams?: Object) => Promise<any>;
+  update: (id: string, params?: Object, extraParams?: Object) => Promise<any>;
   updateMultiple: (data: Object, extraParams?: Object) => Promise<any>;
-  delete: (id: String, extraParams?: Object) => Promise<any>;
+  delete: (id: string, extraParams?: Object) => Promise<any>;
   deleteMultiple: (data: Object, extraParams?: Object) => Promise<any>;
 }
 
